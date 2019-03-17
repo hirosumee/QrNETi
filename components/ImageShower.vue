@@ -1,6 +1,6 @@
 <template>
   <div class="qr-image-container">
-    <div>
+    <div class="img">
       <qrcode-vue :value="value" :size="size" level="H"></qrcode-vue>
     </div>
     <div class="img-footer">
@@ -46,7 +46,11 @@ export default {
   display: flex;
   flex-direction: column;
   margin-top: 16px;
+  background-color: #f5f5f5;
   > div {
+    &.img {
+      padding-top: 20px;
+    }
     margin: auto;
   }
 }

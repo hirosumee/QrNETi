@@ -3,7 +3,7 @@
     <v-container>
       <v-layout>
         <v-flex xs12 md4>
-          <v-text-field v-model="fullname" label="First name"></v-text-field>
+          <v-text-field v-model="fullname" label="Họ và tên"></v-text-field>
         </v-flex>
 
         <v-flex xs12 md4>
@@ -85,6 +85,7 @@ export default {
       let start = 'BEGIN:VCARD\nVERSION:3.0'
       const end = `REV:${new Date().toISOString()}\nEND:VCARD`
       if (fullname) {
+        start += `N:${fullname}\n`
         start += `FN:${fullname}\n`
       }
       if (phone) {
