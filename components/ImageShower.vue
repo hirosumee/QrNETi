@@ -21,7 +21,7 @@ export default {
   },
   data: function() {
     return {
-      size: 500
+      size: 300
     }
   },
   computed: {

@@ -82,18 +82,31 @@ export default {
         address,
         description
       } = this
-      return `BEGIN:VCARD
-VERSION:3.0
-FN:${fullname}
-TEL;TYPE=HOME,VOICE:${phone}
-TEL;TYPE=WORK,VOICE:${businessPhone}
-ADR;TYPE=WORK,PREF:;;${address}
-LABEL;TYPE=WORK,PREF:${address}
-EMAIL;TYPE=HOME:${email}
-EMAIL;TYPE=WORK:${businessEmail}
-DESCRIPTION:${description}
-REV:${new Date().toISOString()}
-END:VCARD`
+      let start = 'BEGIN:VCARD\nVERSION:3.0'
+      const end = `REV:${new Date().toISOString()}\nEND:VCARD`
+      if (fullname) {
+        start += `FN:${fullname}\n`
+      }
+      if (phone) {
+        start += `TEL;TYPE=HOME,VOICE:${phone}\n`
+      }
+      if (businessPhone) {
+        start += `TEL;TYPE=WORK,VOICE:${businessPhone}\n`
+      }
+      if (address) {
+        start += `ADR;TYPE=WORK,PREF:;;${address}\n`
+        start += `LABEL;TYPE=WORK,PREF:${address}\n`
+      }
+      if (email) {
+        start += `EMAIL;TYPE=HOME:${email}\n`
+      }
+      if (businessEmail) {
+        start += `EMAIL;TYPE=WORK:${businessEmail}\n`
+      }
+      if (description) {
+        start += `DESCRIPTION:${description}\n`
+      }
+      return start + end
     }
   },
   watch: {
