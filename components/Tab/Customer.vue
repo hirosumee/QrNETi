@@ -55,6 +55,22 @@
 <script>
 export default {
   name: 'Customer',
+  data: function() {
+    return {
+      valid: false,
+      fullname: '',
+      email: '',
+      businessEmail: '',
+      phone: '',
+      businessPhone: '',
+      address: '',
+      description: '',
+      phoneRules: [
+        v => /0[0-9\s.-]{9,13}/.test(v) || 'Số điện thoại sai định dạng'
+      ],
+      emailRules: [v => /.+@.+/.test(v) || 'Email sai định dạng']
+    }
+  },
   computed: {
     value: function() {
       const {
@@ -78,22 +94,6 @@ EMAIL;TYPE=WORK:${businessEmail}
 DESCRIPTION:${description}
 REV:${new Date().toISOString()}
 END:VCARD`
-    }
-  },
-  data: function() {
-    return {
-      valid: false,
-      fullname: '',
-      email: '',
-      businessEmail: '',
-      phone: '',
-      businessPhone: '',
-      address: '',
-      description: '',
-      phoneRules: [
-        v => /0[0-9\s.-]{9,13}/.test(v) || 'Số điện thoại sai định dạng'
-      ],
-      emailRules: [v => /.+@.+/.test(v) || 'Email sai định dạng']
     }
   },
   watch: {

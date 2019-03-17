@@ -1,15 +1,15 @@
 <template>
   <div class="url-tab">
-    <v-text-field label="Url" @change="updateValue"></v-text-field>
+    <v-text-field label="Nhập dữ liệu" @change="updateValue"></v-text-field>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Url',
+  name: 'OneField',
   data: function() {
     return {
-      url: 'k'
+      url: ''
     }
   },
   computed: {

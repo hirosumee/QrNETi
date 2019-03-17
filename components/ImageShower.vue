@@ -45,6 +45,7 @@ export default {
 .qr-image-container {
   display: flex;
   flex-direction: column;
+  margin-top: 16px;
   > div {
     margin: auto;
   }
